@@ -10,21 +10,21 @@ const Testimonials = () => {
             id:1,
             img:people1,
             name:'winson Herry',
-            reviews:'loremerelrkerler jdhjdfh djfdjfh djfhdjfh djfhdjfhdfj djfhdfjh djfdhj djfhdjfh djfhdj ',
+            reviews:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptates quo incidunt harum minus mollitia! ',
             location:'calrifornia'
         },
         {
             id:2,
             img:people2,
             name:'winson Herry',
-            reviews:'loremerelrkerler jdhjdfh djfdjfh djfhdjfh djfhdjfhdfj djfhdfjh djfdhj djfhdjfh djfhdj ',
+            reviews:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptates quo incidunt harum minus mollitia!',
             location:'calrifornia'
         },
         {
             id:3,
             img:people3,
             name:'winson Herry',
-            reviews:'loremerelrkerler jdhjdfh djfdjfh djfhdjfh djfhdjfhdfj djfhdfjh djfdhj djfhdjfh djfhdj ',
+            reviews:'Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae, voluptates quo incidunt harum minus mollitia! ',
             location:'calrifornia'
         },
     ]
