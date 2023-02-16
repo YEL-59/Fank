@@ -7,7 +7,7 @@ import BannerTwo from "../Bannertwo/BannerTwo";
 import MakeAppoinment from "../MakeAppoinment/MakeAppoinment";
 import Testimonials from "../Testimonial/Testimonials";
 import Contact from "../Contact/Contact";
-import Footer from "../Footer/Footer";
+
 
 const Home = () => {
   return (
@@ -20,7 +20,7 @@ const Home = () => {
         <MakeAppoinment></MakeAppoinment>
         <Testimonials></Testimonials>
         <Contact></Contact>
-        <Footer></Footer>
+     
       </div>
     </div>
   );
