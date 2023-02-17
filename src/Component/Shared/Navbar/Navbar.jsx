@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 const Navbar = () => {
+  const {user,logOut}=useContext(AuthContext)
+  const handleLogout=()=>{
+    logOut()
+    .then(()=>{})
+    .catch(err=>console.log(err))
+  }
   return (
     <div>
       <div className="navbar bg-base-100 flex justify-between">
@@ -60,9 +67,11 @@ const Navbar = () => {
               <li>
                 <Link to="/contactUs">Contact Us</Link>
               </li>
+              { user?.uid ?
               <li>
-                <Link to="/login">Login</Link>
-              </li>
+                <button onClick={handleLogout}>LogOut</button></li>: <li><Link to="/login">Login</Link>
+              </li>}
+              
             </ul>
           </div>
           <Link to="/" className="btn btn-ghost normal-case text-xl">
@@ -77,24 +86,9 @@ const Navbar = () => {
             <li tabIndex={0}>
               <Link to="/" className="justify-between">
                 About
-                <svg
-                  className="fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
-                </svg>
+                
               </Link>
-              <ul className="p-2">
-                <li>
-                  <Link to="/">Submenu 1</Link>
-                </li>
-                <li>
-                  <Link to="/">Submenu 2</Link>
-                </li>
-              </ul>
+              
             </li>
             <li>
               <Link to="/appoinment">Appointment</Link>
@@ -105,9 +99,11 @@ const Navbar = () => {
             <li>
               <Link to="/contactUs">Contact Us</Link>
             </li>
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
+            { user?.uid ?
+              <li>
+                <button onClick={handleLogout}>LogOut</button></li>: <li><Link to="/login">Login</Link>
+              </li>}
+          
           </ul>
         </div>
       </div>

@@ -1,12 +1,31 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthProvider";
 
 const Login = () => {
-  const { register, formState:{errors}, handleSubmit } = useForm();
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm();
+  const { SignIn } = useContext(AuthContext);
   // const [data, setData] = useState("");
+
+  const [loginerror, setLoginError] = useState("");
   const handleLogin = (data) => {
-    console.log(data)
+    console.log(data);
+    setLoginError("");
+    SignIn(data.email, data.password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setLoginError(error.message);
+      });
+
     //console.log(errors)
   };
   return (
@@ -36,11 +55,17 @@ const Login = () => {
               </label>
               <input
                 type="password"
-                {...register("password", { required: "password is required" }, { min: 4, max: 99 })}
+                {...register(
+                  "password",
+                  { required: "password is required" },
+                  { min: 4, max: 99 }
+                )}
                 placeholder="First name"
                 className="input input-bordered w-full max-w-xs"
               />
-               {errors.password && <p role="alert">{errors.password?.message}</p>}
+              {errors.password && (
+                <p role="alert">{errors.password?.message}</p>
+              )}
               <label className="label">
                 <span className="label-text">Forget password ?</span>
               </label>
@@ -52,6 +77,7 @@ const Login = () => {
               value="Login"
               type="submit"
             />
+            <div>{loginerror && <p className="text-red-700 text-xs">*{loginerror}</p>}</div>
           </form>
           <p className="text-xs mt-2">
             *New To Doc_portal{" "}
